@@ -10,14 +10,29 @@ class MyApp extends StatelessWidget {
   final AudioPlayer player = AudioPlayer();
   Widget Soundbutton(
       {required Color color, required String x, required int nodenumber}) {
-    return FlatButton(
-        child: Text('$x'),
+    return Container(
         height: 100,
-        color: color,
-        onPressed: () {
-          player.play(AssetSource('note$nodenumber.wav'));
-          //  print('note$nodenumber.wav');
-        });
+        width: double.infinity,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(30.0),
+          color: color,
+        ),
+        child: TextButton(
+            child: Text(
+              '$x',
+              style: TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black),
+            ),
+            onPressed: () {
+              player.play(AssetSource('note$nodenumber.wav'));
+            })
+        // onPressed: () {
+        //   player.play(AssetSource('note$nodenumber.wav'));
+        //  print('note$nodenumber.wav');
+        // });
+        );
   }
 
   @override
